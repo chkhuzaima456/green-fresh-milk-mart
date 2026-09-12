@@ -367,7 +367,7 @@ function normalizeDB(x){
   x.purchases.forEach(r=>{let p=x.products.find(z=>z.name===r.product);r.unit=p?unitFor(p):r.unit||'Units'});
   if(!x.users.some(u=>u.u==='ch_khuzaima456'))x.users.unshift({u:'ch_khuzaima456',p:'gfmm0456',role:'Admin'});
   if(!x.users.some(u=>u.u==='chzeeshan456'))x.users.push({u:'chzeeshan456',p:'gfmm456',role:'Admin'});
-  x.users.forEach(u=>{if(!u.p && u.u==='chzeeshan456')u.p='gfmm456';if(!u.p && u.u==='ch_khuzaima456')u.p='gfmm0456';if(!u.role)u.role='Staff'});
+  x.users.forEach(u=>{if(u.u==='chzeeshan456')u.p='gfmm456';if(u.u==='ch_khuzaima456')u.p='gfmm0456';if(!u.role)u.role='Staff'});
   return x
 }
 function loadDB(){
