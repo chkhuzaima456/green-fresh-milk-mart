@@ -62,7 +62,7 @@ header{position:fixed;left:0;right:0;top:0;height:82px;padding:10px 22px 10px 28
 .brand h1{color:#0a4934;font-size:22px}.brand small{color:#28614b;opacity:1}
 .brand-logo{width:58px;height:58px;object-fit:contain;border-radius:50%}
 .header-right{display:flex;align-items:center;gap:18px;font-size:13px;color:#315247}.header-right button{background:#fff;border-color:#d9e8df;color:#163f2f}
-nav#nav{position:fixed;z-index:30;left:0;top:0;bottom:0;width:268px;height:100vh;padding:165px 13px 20px;display:flex;flex-direction:column;align-items:stretch;gap:5px;background:linear-gradient(180deg,#063d2b 0,#062e20 100%);border:0;border-radius:0;box-shadow:9px 0 35px #073b2a22}
+nav#nav{position:fixed;z-index:30;left:0;top:0;bottom:0;width:268px;height:100vh;padding:12px 13px 20px;display:flex;flex-direction:column;align-items:stretch;gap:5px;background:linear-gradient(180deg,#063d2b 0,#062e20 100%);border:0;border-radius:0;box-shadow:9px 0 35px #073b2a22}
 nav#nav button{background:transparent;border:0;color:#fff;text-align:left;border-radius:14px;padding:12px 13px;font-size:15px}
 nav#nav button:hover{background:#ffffff14;box-shadow:none;transform:none}
 nav#nav button.active{background:linear-gradient(90deg,#28a466,#19a85f);box-shadow:0 10px 24px #1ba05b44}
@@ -81,7 +81,7 @@ main{max-width:none;margin:0;padding:108px 28px 28px 296px}
 #dashAlerts .stock-alert{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px;background:#f8fbf9;border-radius:12px;margin-top:9px;border:1px solid #e0eae4}.stock-alert small{display:block;color:#a83232;font-weight:800;margin-top:3px}.dash-footer{text-align:center;color:#286047;font-size:12px;letter-spacing:.18em;padding:16px 0 2px}
 .modalcard{width:min(920px,100%);max-height:94vh}.invoice{border-radius:16px;border:1px solid #dfeae4;padding:22px;background:#fff;box-shadow:0 15px 40px #073b2a18}.invoice-logo{width:84px;height:84px;object-fit:contain}.invoice-head{align-items:flex-start}.invoice-title{font-size:25px}.invoice-meta{min-width:180px}.invoice .print-note{background:#f1f8f3}.invoice table{font-size:13px}.invoice th,.invoice td{padding:12px}.invoice-total .grand{background:#f1f8f3;padding:12px;border-radius:10px;border-top:0}
 @media(max-width:1100px){header{padding-left:20px}nav#nav{width:220px}main{padding-left:238px}.dash-layout{grid-template-columns:1fr}.dash-side{display:grid;grid-template-columns:1fr 1fr;gap:14px}.grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:760px){header{height:auto;min-height:72px;padding:10px 12px}.header-right span{display:none}.header-right button{font-size:11px}nav#nav{position:static;width:100%;height:auto;flex-direction:row;overflow:auto;padding:78px 8px 8px}nav#nav:before{display:none}main{padding:14px}.dash-side,.dash-panels{grid-template-columns:1fr}.dashboard-topbar{padding:20px}.fresh-art{display:none}.welcome-name{font-size:23px}.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){header{height:auto;min-height:72px;padding:10px 12px}.header-right span{display:none}.header-right button{font-size:11px}nav#nav{position:static;width:100%;height:auto;flex-direction:row;overflow:auto;padding:8px}nav#nav:before{display:none}main{padding:14px}.dash-side,.dash-panels{grid-template-columns:1fr}.dashboard-topbar{padding:20px}.fresh-art{display:none}.welcome-name{font-size:23px}.grid{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.grid{grid-template-columns:1fr}.header-right{display:none}.brand small{display:block;font-size:9px}.brand h1{font-size:16px}}
 
 
@@ -365,9 +365,9 @@ function normalizeDB(x){
   x.products.forEach(p=>{p.unit=unitFor(p)});
   x.sales.forEach(s=>(s.items||[]).forEach(i=>{if(isMilk(i)||isYogurt(i))i.unit=unitFor(i)}));
   x.purchases.forEach(r=>{let p=x.products.find(z=>z.name===r.product);r.unit=p?unitFor(p):r.unit||'Units'});
-  if(!x.users.some(u=>u.u==='ch_khuzaima456'))x.users.unshift({u:'ch_khuzaima456',p:'gfmm456',role:'Admin'});
+  if(!x.users.some(u=>u.u==='ch_khuzaima456'))x.users.unshift({u:'ch_khuzaima456',p:'gfmm0456',role:'Admin'});
   if(!x.users.some(u=>u.u==='chzeeshan456'))x.users.push({u:'chzeeshan456',p:'gfmm456',role:'Admin'});
-  x.users.forEach(u=>{if(!u.p && (u.u==='chzeeshan456'||u.u==='ch_khuzaima456'))u.p='gfmm456';if(!u.role)u.role='Staff'});
+  x.users.forEach(u=>{if(!u.p && u.u==='chzeeshan456')u.p='gfmm456';if(!u.p && u.u==='ch_khuzaima456')u.p='gfmm0456';if(!u.role)u.role='Staff'});
   return x
 }
 function loadDB(){
